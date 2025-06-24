@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:task_management/home.dart'; // Make sure this matches your folder structure
+import 'package:provider/provider.dart';
+import 'task_manager.dart';
+import 'screens/home_page.dart';
+import 'screens/task_calendar.dart';
+import 'screens/create_task.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => TaskManager(),
+      child: const TaskManagerApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TaskManagerApp extends StatelessWidget {
+  const TaskManagerApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Task Manager',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: const Color(0xFF9C2CF3),
+        scaffoldBackgroundColor: const Color(0xFFF7F8FC),
       ),
-      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Task Manager'),
+        '/calendar': (context) => const TaskCalendarPage(),
+        '/create_task': (context) => const CreateTaskPage(),
+      },
     );
   }
 }

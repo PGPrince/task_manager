@@ -77,8 +77,8 @@ class MyApp extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        height: 200,
-                        width: 200,
+                        height: 300,
+                        width: 300,
                         decoration: BoxDecoration(
                           color: Colors.purple,
                           borderRadius: BorderRadius.circular(20),
@@ -86,8 +86,8 @@ class MyApp extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       Container(
-                        height: 200,
-                        width: 200,
+                        height: 300,
+                        width: 300,
                         decoration: BoxDecoration(
                           color: Colors.purple,
                           borderRadius: BorderRadius.circular(20),
@@ -99,7 +99,6 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          Text("Progress"),
         ),
       ),
     );
